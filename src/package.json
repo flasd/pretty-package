@@ -1,0 +1,20 @@
+{
+  "name": "@flasd/pretty-package-json",
+  "version": "2.0.0",
+  "description": "Prettier for `package.json`.",
+  "bin": "pretty-package-json",
+  "repository": "flasd/pretty-package-json",
+  "scripts": {
+    "lint": "standard --fix . pretty-package-json",
+    "test": "node test"
+  },
+  "dependencies": {
+    "docopt": "^0.6.2",
+    "hosted-git-info": "^2.8.9",
+    "parse-author": "^2.0.0",
+    "stringify-author": "^0.1.3"
+  },
+  "devDependencies": {
+    "standard": "^16.0.3"
+  }
+}
