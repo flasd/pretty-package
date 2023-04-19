@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "fs/promises";
 import { docopt } from "docopt";
 import prettyPackageJson from ".";
 import { version } from "./package.json";
@@ -18,10 +18,11 @@ Options:
   --version    Show version.
 `.trim();
 
-function format(filePath: string, outputPath: string) {
-  const pkg = JSON.parse(fs.readFileSync(filePath, "utf8"));
+async function format(filePath: string, outputPath: string) {
+  const contents = await fs.readFile(filePath, "utf8")
+  const pkg = JSON.parse(contents);
 
-  fs.writeFileSync(
+  return fs.writeFile(
     outputPath,
     JSON.stringify(prettyPackageJson(pkg), null, 2) + "\n"
   );
@@ -35,7 +36,7 @@ function formatFile(file: string, write: boolean, fallbackPath: string) {
   }
 }
 
-function cli(argv: string[]) {
+async function cli(argv: string[]) {
   const args = docopt(doc, { argv, version });
 
   if (args["<file>"]) {
