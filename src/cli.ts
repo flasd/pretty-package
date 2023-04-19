@@ -19,7 +19,7 @@ Options:
 `.trim();
 
 async function format(filePath: string, outputPath: string) {
-  const contents = await fs.readFile(filePath, "utf8")
+  const contents = await fs.readFile(filePath, "utf8");
   const pkg = JSON.parse(contents);
 
   return fs.writeFile(
@@ -43,6 +43,7 @@ async function cli(argv: string[]) {
     const files: string[] = args["<file>"];
 
     files.forEach((file) => formatFile(file, args["--write"], "/dev/stdout"));
+    return;
   }
 
   if (process.stdin.isTTY) {
