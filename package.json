@@ -1,6 +1,6 @@
 {
   "name": "@flasd/pretty-package",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Prettier for `package.json`.",
   "license": "MIT",
   "author": "Marcel Coelho",
